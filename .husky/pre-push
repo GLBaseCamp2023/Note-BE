@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+dotnet test --configuration Release
+
+rc=$?
+
+if [[ $rc != 0 ]] ; then
+    echo -e "test failed"
+    exit $rc
+fi

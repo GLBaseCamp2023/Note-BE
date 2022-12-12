@@ -10,3 +10,5 @@ if [[ $rc != 0 ]] ; then
     echo -e "build failed"
     exit $rc
 fi
+
+exit 0
