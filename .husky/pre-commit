@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+dotnet clean --configuration Release
+dotnet build --configuration Release
+
+rc=$?
+
+if [[ $rc != 0 ]] ; then
+    echo -e "build failed"
+    exit $rc
+fi
