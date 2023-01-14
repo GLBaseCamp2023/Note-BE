@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Evernote.Entities\Evernote.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
