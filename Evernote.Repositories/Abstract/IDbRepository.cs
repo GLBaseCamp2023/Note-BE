@@ -9,15 +9,14 @@ using Evernote.Entities;
 namespace Evernote.Repositories.Abstract {
     public interface IDbRepository<T>
         where T : class, IDbEntity {
-        IQueryable<T> AllItems { get; }
 
-        Task<List<T>> GetAllItemsAsync(Expression<Func<T, bool>>? filter = null, string? includeProps = null);
+        Task<List<T>> GetAllItemsAsync(Expression<Func<T, bool>>? filter = null, params Expression<Func<T, object>>[] includes);
 
-        Task<bool> AddItemAsync(T item, bool saving = true);
+        Task<bool> AddItemAsync(T item);
 
         Task<int> AddItemsAsync(IEnumerable<T> items);
 
-        Task<T> GetItemAsync(Expression<Func<T, bool>>? filter = null, bool tracked = true, string? includeProps = null);
+        Task<T> GetItemAsync(Expression<Func<T, bool>>? filter = null, params Expression<Func<T, object>>[] includes);
 
         Task<bool> ChangeItemAsync(T item);
 
