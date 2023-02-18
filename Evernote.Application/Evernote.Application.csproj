@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Evernote.DataContext\Evernote.DataContext.csproj" />
+    <ProjectReference Include="..\Evernote.Domain\Evernote.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
