@@ -5,7 +5,7 @@ using Evernote.Domain.Dtos;
 namespace Evernote.API.MapperProfiles {
     public class NoteProfile : Profile
     {
-        protected NoteProfile() 
+        public NoteProfile() 
         {
             CreateMap<AddNoteRequest, NoteDto>();
         } 

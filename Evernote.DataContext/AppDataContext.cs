@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Evernote.DataContext {
     public class AppDataContext : DbContext {
-        protected AppDataContext(DbContextOptions<AppDataContext> options)
+        public AppDataContext(DbContextOptions<AppDataContext> options)
             :base(options)
         {
         }

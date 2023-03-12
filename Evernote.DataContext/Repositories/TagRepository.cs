@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Evernote.DataContext.Repositories {
     public class TagRepository : DbRepository<Tag>, ITagRepository {
-        public TagRepository(DbContext context) : base(context) {
+        public TagRepository(AppDataContext context) : base(context) {
         }
     }
 }

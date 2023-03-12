@@ -4,7 +4,7 @@ using Evernote.Domain.Entities;
 
 namespace Evernote.DataContext.MapperProfiles; 
 public class AppProfiles : Profile {
-    protected AppProfiles() {
+    public AppProfiles() {
         CreateMap<Note, NoteDto>().ReverseMap();
         CreateMap<User, UserDto>().ReverseMap();
         CreateMap<Image, ImageDto>().ReverseMap();
