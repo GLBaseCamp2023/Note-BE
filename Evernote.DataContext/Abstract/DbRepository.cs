@@ -3,12 +3,12 @@ using Evernote.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Evernote.DataContext.Abstract {
-    public class DbRepository<T> : IDbRepository<T> where T : class, IDbEntity {
+    public abstract class DbRepository<T> : IDbRepository<T> where T : class, IDbEntity {
 
-        private DbContext _context;
+        private AppDataContext _context;
         private DbSet<T> _dbSet;
 
-        public DbRepository(DbContext context) {
+        public DbRepository(AppDataContext context) {
             _context = context;
             _dbSet = context.Set<T>();
         }

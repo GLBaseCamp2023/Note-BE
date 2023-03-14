@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Evernote.DataContext.Repositories {
     public class NoteRepository : DbRepository<Note>, INoteRepository {
-        public NoteRepository(DbContext context) : base(context) {
+        public NoteRepository(AppDataContext context) : base(context) {
         }
     }
 }

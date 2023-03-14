@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Evernote.DataContext.Repositories {
     public class ImageRepository : DbRepository<Image>, IImageRepository {
-        public ImageRepository(DbContext context) : base(context) {
+        public ImageRepository(AppDataContext context) : base(context) {
         }
     }
 }
