@@ -24,24 +24,20 @@ namespace Evernote.DataContext.Abstract {
             return entities;
         }
 
-        public async Task<bool> ChangeItemAsync(T entity) {
-
-
+        public async Task ChangeItemAsync(T entity) {
             _dbSet.Attach(entity).State = EntityState.Modified;
-            return true;
         }
 
-        public async Task<bool> DeleteItemAsync(Guid id) {
+        public async Task DeleteItemAsync(Guid id) {
             var candidate = await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
             _dbSet.Remove(candidate);
-            return true;
         }
-        public async Task<bool> DeleteItemsAsync(IEnumerable<T> entities) {
+        public async Task DeleteItemsAsync(IEnumerable<T> entities) {
             foreach (var item in entities) {
                 var h = _dbSet.Find(item.Id);
                 _dbSet.Remove(h);
             }
-            return true;
+
         }
         public async Task<T> GetItemAsync(Expression<Func<T, bool>>? filter = null, params Expression<Func<T, object>>[] includes) {
             IQueryable<T> query = _dbSet;

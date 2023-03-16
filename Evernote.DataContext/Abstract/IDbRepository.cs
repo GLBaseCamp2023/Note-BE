@@ -13,10 +13,10 @@ namespace Evernote.DataContext.Abstract {
 
         Task<T> GetItemAsync(Expression<Func<T, bool>>? filter = null, params Expression<Func<T, object>>[] includes);
 
-        Task<bool> ChangeItemAsync(T item);
+        Task ChangeItemAsync(T item);
 
-        Task<bool> DeleteItemAsync(Guid id);
-        Task<bool> DeleteItemsAsync(IEnumerable<T> entities);
+        Task DeleteItemAsync(Guid id);
+        Task DeleteItemsAsync(IEnumerable<T> entities);
 
         Task<int> SaveChangesAsync();
     }

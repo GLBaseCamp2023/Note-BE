@@ -30,10 +30,18 @@ namespace Evernote.Application.Implementations {
         }
 
         public async Task<bool> DeleteNoteAsync(Guid id) {
-            var result = await noteRepository.DeleteItemAsync(id);
-            await noteRepository.SaveChangesAsync();
+            try {
 
-            return result;
+                await noteRepository.DeleteItemAsync(id);
+                await noteRepository.SaveChangesAsync();
+
+            } catch (Exception) {
+
+                throw;
+            }
+          
+            return true;
+
         }
 
         public async Task<IEnumerable<NoteDto>> GetUserNotesAsync(Guid userId) {
