@@ -12,17 +12,10 @@ namespace Evernote.DataContext.Unit {
 
 #pragma warning disable IDE0025
 
-        private TagRepository _tagRepository;
-        public ITagRepository TagRepository => _tagRepository ?? (_tagRepository = new TagRepository(_dbContext));
-
-        private ImageRepository _imageRepository;
-        public IImageRepository ImageRepository => _imageRepository ?? (_imageRepository = new ImageRepository(_dbContext));
-
-        private NoteRepository _noteRepository;
-        public INoteRepository NoteRepository => _noteRepository ?? (_noteRepository = new NoteRepository(_dbContext));
-
-        private UserRepository _userRepository;
-        public IUserRepository UserRepository => _userRepository ?? (_userRepository = new UserRepository(_dbContext));
+        public ITagRepository TagRepository => new TagRepository(_dbContext);
+        public IImageRepository ImageRepository => new ImageRepository(_dbContext);
+        public INoteRepository NoteRepository => new NoteRepository(_dbContext);
+        public IUserRepository UserRepository => new UserRepository(_dbContext);
 
 
         private readonly AppDataContext _dbContext;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Evernote.DataContext.Generic;
 
 namespace Evernote.DataContext.Unit {
-    internal interface IUnitOfWork : IAsyncDisposable {
+    public interface IUnitOfWork : IAsyncDisposable {
 
         IUserRepository UserRepository { get; }
         ITagRepository TagRepository { get; }

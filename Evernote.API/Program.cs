@@ -1,5 +1,6 @@
 using Evernote.API.Extensions;
 using Evernote.DataContext;
+using Evernote.DataContext.Unit;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +11,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDataContext(builder.Configuration);
+
 builder.Services.ConfigureServices();
 builder.Services.ConfigureAutoMapper();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
