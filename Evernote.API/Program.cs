@@ -15,7 +15,7 @@ builder.Services.AddDataContext(builder.Configuration);
 builder.Services.ConfigureServices();
 builder.Services.ConfigureAutoMapper();
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
 var app = builder.Build();
 
