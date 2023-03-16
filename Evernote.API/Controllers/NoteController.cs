@@ -50,10 +50,10 @@ public class NoteController : ApiControllerBase<NoteController>
     [ProducesResponseType(typeof(DeleteNoteResponse), 200)]
     public async Task<DeleteNoteResponse> DeleteNote([FromBody] DeleteNoteRequest request) 
     {
-        var isSuccess = await _noteService.DeleteNoteAsync(request.NoteId);
+        await _noteService.DeleteNoteAsync(request.NoteId);
 
         return new DeleteNoteResponse {
-            IsSuccess = isSuccess
+            IsSuccess = true
         };
     }
 }

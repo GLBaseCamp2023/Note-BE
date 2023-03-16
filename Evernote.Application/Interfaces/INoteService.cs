@@ -4,5 +4,5 @@ namespace Evernote.Application.Interfaces;
 public interface INoteService {
     Task<IEnumerable<NoteDto>> GetUserNotesAsync(Guid userId);
     Task<NoteDto> AddNoteAsync(NoteDto note);
-    Task<bool> DeleteNoteAsync(Guid id);
+    Task DeleteNoteAsync(Guid id);
 }
