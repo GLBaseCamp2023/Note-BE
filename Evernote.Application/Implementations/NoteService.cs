@@ -29,11 +29,14 @@ namespace Evernote.Application.Implementations {
             return mapper.Map<NoteDto>(createdNote);
         }
 
-        public async Task<bool> DeleteNoteAsync(Guid id) {
-            var result = await noteRepository.DeleteItemAsync(id);
-            await noteRepository.SaveChangesAsync();
+        public async Task DeleteNoteAsync(Guid id) {
 
-            return result;
+                await noteRepository.DeleteItemAsync(id);
+                await noteRepository.SaveChangesAsync();
+
+      
+          
+
         }
 
         public async Task<IEnumerable<NoteDto>> GetUserNotesAsync(Guid userId) {

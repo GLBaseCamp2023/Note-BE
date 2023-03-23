@@ -15,36 +15,29 @@ namespace Evernote.DataContext.Abstract {
 
         public async Task<T> AddItemAsync(T entity) {
             _dbSet.Add(entity);
-            await SaveChangesAsync();
-
             return entity;
 
         }
 
         public async Task<IEnumerable<T>> AddItemsAsync(IEnumerable<T> entities) {
             await _dbSet.AddRangeAsync(entities);
-            await SaveChangesAsync();
             return entities;
         }
 
-        public async Task<bool> ChangeItemAsync(T entity) {
-
-
+        public async Task ChangeItemAsync(T entity) {
             _dbSet.Attach(entity).State = EntityState.Modified;
-            return await SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> DeleteItemAsync(Guid id) {
+        public async Task DeleteItemAsync(Guid id) {
             var candidate = await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
             _dbSet.Remove(candidate);
-            return await SaveChangesAsync() > 0;
         }
-        public async Task<bool> DeleteItemsAsync(IEnumerable<T> entities) {
+        public async Task DeleteItemsAsync(IEnumerable<T> entities) {
             foreach (var item in entities) {
                 var h = _dbSet.Find(item.Id);
                 _dbSet.Remove(h);
             }
-            return await SaveChangesAsync() > 0;
+
         }
         public async Task<T> GetItemAsync(Expression<Func<T, bool>>? filter = null, params Expression<Func<T, object>>[] includes) {
             IQueryable<T> query = _dbSet;
